@@ -64,21 +64,23 @@ img {
 
 @media only screen and (max-width: 600px) {
   img {
-    width: calc(80vw - 2rem);
+    margin-top: -2rem;
+    width: calc(90vw - 2rem);
     height: auto;
   }
 }
 
 @media only screen and (min-width: 600px) {
   img {
-    width: calc(80vw - 2rem);
+    margin-top: -2rem;
+    width: calc(90vw - 2rem);
     height: auto;
   }
 }
 
 @media only screen and (min-width: 768px) {
   img {
-    width: calc(80vw - 2rem);
+    width: calc(90vw - 2rem);
     height: auto;
   }
 
@@ -89,7 +91,7 @@ img {
 
 @media only screen and (min-width: 820px) {
   img {
-    width: calc(80vw - 2rem);
+    width: calc(90vw - 2rem);
     height: auto;
   }
 
@@ -100,7 +102,7 @@ img {
 
 @media only screen and (min-width: 992px) {
   img {
-    height: calc(80vh - 2rem);
+    height: calc(90vh - 2rem);
     width: auto;
   }
 
@@ -111,7 +113,7 @@ img {
 
 @media only screen and (min-width: 1200px) {
   img {
-    height: calc(80vh - 2rem);
+    height: calc(90vh - 2rem);
     width: auto;
   }
 }
