@@ -30,7 +30,7 @@ class App {
     };
     setPage(no = 0) {
         const id = `${this.config.prefix}${no}`;
-        const src = `./img/${id}.png`;
+        const src = `./img/${id}.jpg`;
 
         const $figure = document.createElement('figure');
         $figure.setAttribute('id', id);
