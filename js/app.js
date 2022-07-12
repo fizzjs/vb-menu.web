@@ -37,6 +37,7 @@ class App {
 
         const $img = document.createElement('img');
         $img.setAttribute('src', src);
+        $img.setAttribute('loading', 'lazy');
         $figure.appendChild($img);
 
         const $figcaption = document.createElement('figcaption');
