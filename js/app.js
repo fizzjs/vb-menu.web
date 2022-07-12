@@ -152,4 +152,3 @@ class App {
     }
 }
 document.addEventListener('DOMContentLoaded', () => new App().init());
-/mobile/i.test(navigator.userAgent) && !location.hash && setTimeout(() => window.scrollTo(0, 1), 1000);​
