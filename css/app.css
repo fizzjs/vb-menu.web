@@ -148,12 +148,12 @@ button:hover i {
   color: white;
 }
 
-.next {
+button.next {
   right: 0.125rem;
   display: none;
 }
 
-.prev {
+button.prev {
   left: 0.125rem;
   display: none;
 }

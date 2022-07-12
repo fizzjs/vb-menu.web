@@ -14,8 +14,13 @@ class App {
         last: 14
     };
     state = {
+        isBusy: false,
         page: 0,
         pos: {
+            wheel: {
+                pos: 0,
+                dir: false,
+            },
             initial: undefined,
             current: {
                 clientX: undefined,
@@ -70,15 +75,36 @@ class App {
         const [$0] = e.touches;
         this.state.pos.initial = $0;
     }
+    onZoom(e) {
+        const { deltaY = 0} = e;
+        this.state.pos.wheel.pos = deltaY;
+        this.state.pos.wheel.dir = deltaY > 0;
+        if (this.state.isBusy) {
+            return;
+        }
+
+        this.state.isBusy = true
+        window.requestAnimationFrame(() => {
+            const { pos, dir } = this.state.pos.wheel;
+            console.log(Math.abs(pos))
+            if (Math.abs(pos) > 0) {
+                dir ? this.next() : this.prev();
+            }
+            window.setTimeout(() => this.state.isBusy = false,  1000);
+        });
+    }
     init() {
         const { start, last } = this.config
+        for (let i = start; i < last; i++) this.setPage(i);
+        this.goTo(start);
+        this.registerEvents();
+    }
+    registerEvents() {
         this.$next.addEventListener('click', this.next.bind(this));
         this.$prev.addEventListener('click', this.prev.bind(this));
         this.$main.addEventListener('touchstart', this.onStartTouch.bind(this), false);
         this.$main.addEventListener('touchmove', this.onMoveTouch.bind(this), false);
-
-        for (let i = start; i < last; i++) this.setPage(i);
-        this.goTo(start);
+        document.addEventListener('wheel', this.onZoom.bind(this));
     }
     next() {
         if (this.state.page === this.config.last - 1) {
