@@ -17,6 +17,9 @@ body,
 html {
   width: 100vw;
   min-height: 100vh;
+  min-height: -moz-available;
+  min-height: -webkit-fill-available;
+  min-height: fill-available;
   background: var(--main-bg-color);
 }
 
